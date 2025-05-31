@@ -20,9 +20,7 @@ const client = new MongoClient(uri, {
     strict: true,
     deprecationErrors: true,
   }
-
 });
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -44,7 +42,6 @@ async function run() {
       const result=await cursor.toArray();
       res.send(result)
     })
-
     // create
     app.post('/reviews',async(req,res)=>{
       const newReview= req.body;
@@ -53,7 +50,6 @@ async function run() {
       res.send(result)
     })
    
-
     // read
     app.get('/review',async(req,res)=>{
       const query= req.query.sort
