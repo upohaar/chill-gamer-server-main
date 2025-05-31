@@ -22,6 +22,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -38,6 +39,7 @@ async function run() {
       res.send(result)
       
     })
+
     app.get('/userReview',async(req,res)=>{
       const cursor = userReviews.find();
       const result=await cursor.toArray();
@@ -49,8 +51,7 @@ async function run() {
       console.log(newReview);
       const result = await gameCollection.insertOne(newReview);
       res.send(result)
-    })
-   
+    })   
     // read
     app.get('/review',async(req,res)=>{
       const query= req.query.sort
